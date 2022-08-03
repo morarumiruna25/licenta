@@ -7,7 +7,6 @@ export const getData = async (url) => {
       // Authorization: token
     }
   });
-
   const data = await res.json();
   return data;
 };

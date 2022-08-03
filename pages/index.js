@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import Typed from "react-typed";
-import Navbar from "/components/Navbar.js";
 import Carousel from "../components/Carousel";
-import { useState } from "react";
 import { getData } from "../utils/fetchData";
+import Link from "next/link";
+
 // import Card from '../models/cardModel'
 
 const roles = ["Oltenia, de vazut, de trait, de povestit !!"];
@@ -45,7 +45,7 @@ const Home = (props) => {
 			<div className="grid gap-2 w-11/12 mx-auto md:grid-cols-2 justify-items-center">
 				{props.cards.map((card) => (
 					<div key={card._id}>
-						<div className="m-2 bg-white rounded-lg shadow-lg ">
+						<div className="transition ease-in-out delay-150 hover:scale-105 m-2 bg-white rounded-lg shadow-lg transform-gpu ">
 							<a href="#">
 								<img
 									className="w-full lg:h-96 h-72 mx-auto p-0 rounded-t-lg"
@@ -59,8 +59,10 @@ const Home = (props) => {
 										{card.descriere_scurta}
 									</h5>
 								</a>
-								<div className="flex items-center mt-2.5 mb-5">
-									Rating -
+								<div className="flex  items-center mt-2.5 mb-5 ">
+									<span className="ml-0.5 bg-green-100 text-blue-800 text-md font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ">
+										Rating{" "}
+									</span>{" "}
 									<span className="ml-0.5 bg-blue-100 text-blue-800 text-md font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ">
 										{card.rating}
 									</span>{" "}
@@ -76,15 +78,17 @@ const Home = (props) => {
 									</svg>
 								</div>
 								<div className="flex justify-between items-center">
-									<span className="text-2xl font-bold text-gray-900 dark:text-white">
-							{card.locatie}
+									<span className="text-xl font-bold text-gray-900 dark:text-white">
+										<span className="text-md bg-blue-100 rounded-full p-0.5 mr-1">
+											📍
+										</span>
+										{card.locatie}
 									</span>
-									<a
-										href="#"
-										className="ml-3 text-white text-md bg-slate-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-									>
-										Mai multe detalii
-									</a>
+									<Link href={`card/${card._id}`}>
+										<a className="ml-3 text-white text-md bg-slate-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+											Mai multe detalii
+										</a>
+									</Link>
 								</div>
 							</div>
 						</div>
