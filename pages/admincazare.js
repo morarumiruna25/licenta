@@ -6,13 +6,13 @@ import { postData, getData, putData } from "../utils/fetchData";
 import Router from "next/router";
 import Link from "next/link";
 
-export default function Admin() {
+export default function Admincazare() {
+
 	const { state, dispatch } = useContext(DataContext);
 	const { auth } = state;
 
 	useEffect(() => {
-		if (Object.keys(auth).length ==0) {
-			console.log(Object.keys(auth).length)
+		if (Object.keys(auth).length === 0) {
 			dispatch({ type: "NOTIFY", payload: { error: "Acces Neautorizat" } });
 			Router.push("/");
 		}

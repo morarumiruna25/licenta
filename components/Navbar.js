@@ -12,7 +12,7 @@ import Cookie from "js-cookie";
 
 const navigation = [
 	{ name: "Locuti de Vizitat", href: "/", current: true },
-	{ name: "Ofete cazare", href: "cazare", current: true },
+	{ name: "Ofete cazare", href: "/cazare", current: true },
 ];
 
 const navigation2 = [
@@ -67,6 +67,7 @@ const Navbar = ({ children }) => {
 				>
 					Logout
 				</button>
+				
 			</>
 		);
 	};

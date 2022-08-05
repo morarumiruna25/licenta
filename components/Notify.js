@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { DataContext } from '../store/GlobalState';
-// import Loading from './Loading';
+import Loading from './Loading';
 import Toast from './Toast';
 
 const Notify = () => {
@@ -9,7 +9,7 @@ const Notify = () => {
 
   return (
     <div>
-      {/* {notify.loading && <Loading />} */}
+      {notify.loading && <Loading />}
       {notify.error && (
         <Toast
           msg={{ msg: notify.error, title: '' }}

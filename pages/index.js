@@ -46,7 +46,7 @@ const Home = (props) => {
 				{props.cards.map((card) => (
 					<div key={card._id}>
 						<div className="transition ease-in-out delay-150 hover:scale-105 m-2 bg-white rounded-lg shadow-lg transform-gpu ">
-							<a href="#">
+							<a href={`card/${card._id}`}>
 								<img
 									className="w-full lg:h-96 h-72 mx-auto p-0 rounded-t-lg"
 									src={card.images[0].url}

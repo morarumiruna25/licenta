@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { imageUpload } from "../utils/imageUpload";
 import { useContext, useEffect } from "react";
@@ -13,37 +14,53 @@ export default function Admin() {
 		descriere: "",
 		descriere_scurta: "",
 		link: "",
-    indate: today(),
-    outdate: tomorrow()
+		indate: today(),
+		outdate: tomorrow(),
 	};
-  function today(i)
-  {
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth()+1;
-      var yyyy = today.getFullYear();
+	function today(i) {
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth() + 1;
+		var yyyy = today.getFullYear();
 
-      // today = dd+'/'+mm+'/'+yyyy;
-      today = String(yyyy) + '-' + String(Number(mm) > 9 ? mm: "0" + mm) +'-'+ String(Number(dd) > 9 ? dd : "0" + dd)
-      // today = yyyy + '-' + Number(mm) > 9 ? mm: "0" + mm +'-'+ dd
+		// today = dd+'/'+mm+'/'+yyyy;
+		today =
+			String(yyyy) +
+			"-" +
+			String(Number(mm) > 9 ? mm : "0" + mm) +
+			"-" +
+			String(Number(dd) > 9 ? dd : "0" + dd);
+		// today = yyyy + '-' + Number(mm) > 9 ? mm: "0" + mm +'-'+ dd
 
-      return today;   
-  }
-  function tomorrow(i)
-  {
-      var today = new Date();
-      var dd = today.getDate()+1;
-      var mm = today.getMonth()+1;
-      var yyyy = today.getFullYear();
+		return today;
+	}
+	function tomorrow(i) {
+		var today = new Date();
+		var dd = today.getDate() + 1;
+		var mm = today.getMonth() + 1;
+		var yyyy = today.getFullYear();
 
-      // today = dd+'/'+mm+'/'+yyyy;
-      tomorrow = String(yyyy) + '-' + String(Number(mm) > 9 ? mm: "0" + mm) +'-'+ String(Number(dd) > 9 ? dd : "0" + dd)
-      // today = yyyy + '-' + Number(mm) > 9 ? mm: "0" + mm +'-'+ dd
+		// today = dd+'/'+mm+'/'+yyyy;
+		tomorrow =
+			String(yyyy) +
+			"-" +
+			String(Number(mm) > 9 ? mm : "0" + mm) +
+			"-" +
+			String(Number(dd) > 9 ? dd : "0" + dd);
+		// today = yyyy + '-' + Number(mm) > 9 ? mm: "0" + mm +'-'+ dd
 
-      return tomorrow;   
-  }
+		return tomorrow;
+	}
 	const [card, setCard] = useState(initialState);
-	const { locatie, rating, descriere, descriere_scurta, link, outdate, indate } = card;
+	const {
+		locatie,
+		rating,
+		descriere,
+		descriere_scurta,
+		link,
+		outdate,
+		indate,
+	} = card;
 
 	const [images, setImages] = useState([]);
 
@@ -224,6 +241,201 @@ export default function Admin() {
 								</div>
 							</div>
 						</form>
+					</div>
+				</div>
+			</div>
+			<div className="mt-5 m-10 w-3/4 mx-auto s grid grid-cols-4 gap-4">
+				<div className=" col-span-1">
+					<h2 className="pt-7 pb-2 font-bold">Pret :</h2>
+					<fieldset className="p-2 pb-0 shadow-lg bg-slate-100 rounded-lg border">
+						<legend className="sr-only">Checkbox variants</legend>
+
+						<div className="flex items-center mb-4">
+							<input
+								id="country-option-1"
+								type="radio"
+								name="countries"
+								value="USA"
+								className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+								checked
+							></input>
+							<label
+								htmlFor="checkbox-2"
+								className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+							>
+								0 - 100 Lei
+							</label>
+						</div>
+
+						<div className="flex items-center mb-4">
+							<input
+								id="country-option-1"
+								type="radio"
+								name="countries"
+								value="USA"
+								className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+								checked
+							></input>
+							<label
+								htmlFor="checkbox-2"
+								className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+							>
+								100 - 199 Lei
+							</label>
+						</div>
+
+						<div className="flex items-center mb-4">
+							<input
+								id="country-option-1"
+								type="radio"
+								name="countries"
+								value="USA"
+								className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+								checked
+							></input>
+							<label
+								htmlFor="checkbox-2"
+								className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+							>
+								199-399 Lei
+							</label>
+						</div>
+
+						<div className="flex items-center mb-4">
+							<input
+								id="country-option-1"
+								type="radio"
+								name="countries"
+								value="USA"
+								classNames="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+								checked
+							></input>
+							<label
+								htmlFor="checkbox-2"
+								className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+							>
+								399+
+							</label>
+						</div>
+					</fieldset>
+
+					<h2 className="pt-7 pb-2 font-bold">Stele :</h2>
+					<div>
+					<fieldset className="p-2 pb-0 shadow-lg bg-slate-100 rounded-lg border">
+							<legend className="sr-only">Checkbox variants</legend>
+
+							<div className="flex items-center mb-4">
+								<input
+									id="checkbox-2"
+									type="checkbox"
+									value=""
+									className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								></input>{" "}
+								<label
+									htmlFor="checkbox-2"
+									className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+								>
+									{" "}
+									⭐
+								</label>
+						
+								
+							</div>
+              <div className="flex items-center mb-4">
+								<input
+									id="checkbox-2"
+									type="checkbox"
+									value=""
+									className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								></input>{" "}
+								<label
+									htmlFor="checkbox-2"
+									className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+								>
+									{" "}
+									⭐⭐
+								</label>
+						
+								
+							</div><div className="flex items-center mb-4">
+								<input
+									id="checkbox-2"
+									type="checkbox"
+									value=""
+									className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								></input>{" "}
+								<label
+									htmlFor="checkbox-2"
+									className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+								>
+									{" "}
+									⭐⭐⭐
+								</label>
+						
+								
+							</div><div className="flex items-center mb-4">
+								<input
+									id="checkbox-2"
+									type="checkbox"
+									value=""
+									className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+								></input>{" "}
+								<label
+									htmlFor="checkbox-2"
+									className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+								>
+									{" "}
+									⭐⭐⭐⭐
+								</label>
+						
+								
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div className="col-span-3">
+					<div className="my-3 grid bg-gray-100 border-1 rounded-xl shadow-lg grid-cols-3 ">
+						<div className="col-span-3 p-2 sm:col-span-1 mr-2 ">
+							<img
+								className="object-cover h-full w-full border-1 rounded-lg"
+								src="/caru1.jpeg"
+								alt=""
+							></img>{" "}
+						</div>
+						<div className=" col-span-3 sm:col-span-2">
+							<h5 className="text-2xl font-bold text-blue-800 dark:text-white">
+								Noteworthy technology acquisitions 2021
+							</h5>
+							<h1 className="mb-2 text-xs italic  font-bold text-gray-500">
+								Aleea privighetroii, nr357
+							</h1>
+							<p className="pb-1 font-normal  text-gray-700 dark:text-gray-400">
+								Pensiunea Venera este situata in satul Sanatesti, comuna Arcani,
+								judetul Gorj, la o distanta de 12km de Municipiul Targu Jiu (DN
+								67)
+							</p>
+							<div className="text-lg justify-self-end font-bold text-green-500 dark:text-gray-400">
+								200 lei / zi / camera
+							</div>
+						</div>
+					</div>
+					<div className="grid bg-gray-100 border-1 rounded-xl shadow-lg grid-cols-3 ">
+						<div className="col-span-3 p-2  sm:col-span-1 mr-2 ">
+							<img
+								className="object-cover h-full w-full border-1 rounded-lg"
+								src="/caru1.jpeg"
+								alt=""
+							></img>{" "}
+						</div>
+						<div className=" col-span-3 sm:col-span-2">
+							<h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+								Noteworthy technology acquisitions 2021
+							</h5>
+							<p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+								Here are the biggest enterprise technology acquisitions of 2021
+								so far, in reverse chronological order. shadowasda
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
