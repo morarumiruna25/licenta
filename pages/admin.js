@@ -2,7 +2,7 @@ import { useState } from "react";
 import { imageUpload } from "../utils/imageUpload";
 import { useContext, useEffect } from "react";
 import { DataContext } from "../store/GlobalState";
-import { postData, getData, putData } from '../utils/fetchData';
+import { postData, getData, putData } from "../utils/fetchData";
 
 export default function Admin() {
 	const { state, dispatch } = useContext(DataContext);
@@ -12,10 +12,11 @@ export default function Admin() {
 		rating: 0,
 		descriere: "",
 		descriere_scurta: "",
+		link: ""
 	};
 
 	const [card, setCard] = useState(initialState);
-	const { locatie, rating, descriere, descriere_scurta } = card;
+	const { locatie, rating, descriere, descriere_scurta, link} = card;
 
 	const [images, setImages] = useState([]);
 
@@ -83,7 +84,7 @@ export default function Admin() {
 				type: "NOTIFY",
 				payload: { success: ": Incarcat in baza de date" },
 			});
-11
+			11;
 			setCard(initialState);
 			setImages([]);
 		}
@@ -187,6 +188,32 @@ export default function Admin() {
 												placeholder="Descriere in detaliu"
 												onChange={handleChangeInput}
 												value={descriere}
+											/>
+										</div>
+									</div>
+									<div>
+										<label
+											htmlFor="about"
+											className="block text-sm font-medium text-gray-700"
+										>
+											<a 
+											
+											 href="https://www.google.com/maps" 
+											 className="inline-flex justify-center py-1 px-1.5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+											 target="_blank" rel="noreferrer"
+											 >
+												Link Maps
+											</a>
+										</label>
+										<div className="mt-1">
+											<textarea
+												id="link"
+												name="link"
+												rows={2}
+												className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+												placeholder="Link afterent de pe google maps Ex: http://www.google.com/maps/oletnia/romania"
+												onChange={handleChangeInput}
+												value={link}
 											/>
 										</div>
 									</div>

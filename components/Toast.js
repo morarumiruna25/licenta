@@ -15,9 +15,12 @@ const Toast = ({ msg, handleShow, id, color }) => {
 					<path fillRule="evenodd" d={id} clipRule="evenodd"></path>
 				</svg>
 			</div>
-			<div className="ml-3 text-sm  font-normal">
+			<div className="ml-3 text-sm  font-medium">
 				{msg.title}
-				{msg.msg}
+			</div>
+			<div className="ml-3 text-sm  font-normal">
+			{msg.msg}
+
 			</div>
 			<button
 				 onClick={handleShow}

@@ -19,6 +19,10 @@ const cardSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    link:{
+        type: String,
+
+    },
     images: {
         type: Array,
         required: true

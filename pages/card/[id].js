@@ -47,14 +47,14 @@ const Card_detail = (props) => {
 						</p>
 						<div className="flex justify-center">
 							<Link href="/">
-								<button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+								<button className="transition ease-in-out delay-150 hover:scale-105 font-medium inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
 									Pagina pricipala
 								</button>
 							</Link>
 
-							<button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+							<a href={card.link} className="transition ease-in-out delay-150 hover:scale-105 font-medium ml-4 inline-flex text-white bg-green-400 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded text-lg">
 								See On Map
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>

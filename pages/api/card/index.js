@@ -78,10 +78,10 @@ const createCard = async (req, res) => {
         // const result = await auth(req, res)
         // if(result.role !== 'admin') return res.status(400).json({err: 'Authentication is not valid.'})
 
-        const {locatie, rating, descriere, descriere_scurta, images} = req.body
+        const {locatie, rating, descriere, descriere_scurta, link, images} = req.body
 
         const newCard = new Card({
-          locatie, rating, descriere, descriere_scurta, images
+          locatie, rating, descriere, descriere_scurta, link, images
         })
 
         await newCard.save()
