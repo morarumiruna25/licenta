@@ -7,7 +7,6 @@ import Router from "next/router";
 import Link from "next/link";
 
 export default function Admincazare() {
-
 	const { state, dispatch } = useContext(DataContext);
 	const { auth } = state;
 
@@ -19,15 +18,16 @@ export default function Admincazare() {
 	}, []);
 
 	const initialState = {
-		locatie: "Oltenia, Romania",
+		adresa: "",
+		nume: "",
 		rating: 0,
 		descriere: "",
-		descriere_scurta: "",
 		link: "",
+		pret: ""
 	};
 
-	const [card, setCard] = useState(initialState);
-	const { locatie, rating, descriere, descriere_scurta, link } = card;
+	const [cardcazare, setCardcazare] = useState(initialState);
+	const { adresa, rating, descriere, link, nume, pret } = cardcazare;
 
 	const [images, setImages] = useState([]);
 
@@ -67,7 +67,7 @@ export default function Admincazare() {
 
 	const handleChangeInput = (e) => {
 		const { name, value } = e.target;
-		setCard({ ...card, [name]: value });
+		setCardcazare({ ...cardcazare, [name]: value });
 	};
 
 	const handleSubmit = async (e) => {
@@ -83,8 +83,8 @@ export default function Admincazare() {
 		let res;
 
 		res = await postData(
-			"card",
-			{ ...card, images: [...imgOldURL, ...media] }
+			"cardcazare",
+			{ ...cardcazare, images: [...imgOldURL, ...media] }
 			// ,	auth.token
 		);
 
@@ -96,7 +96,7 @@ export default function Admincazare() {
 				payload: { success: ": Incarcat in baza de date" },
 			});
 			11;
-			setCard(initialState);
+			setCardcazare(initialState);
 			setImages([]);
 		}
 	};
@@ -128,26 +128,24 @@ export default function Admincazare() {
 									></path>
 								</svg>
 								Mengereiaza Users
-
 							</a>
 						</Link>
-						<Link 	href="/admincazare">
-						<a
-						
-							type="button"
-							className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
-						>
-							<svg
-								aria-hidden="true"
-								className="mr-2 w-4 h-4 fill-current"
-								fill="currentColor"
-								viewBox="0 0 20 20"
-								xmlns="http://www.w3.org/2000/svg"
+						<Link href="/admincazare">
+							<a
+								type="button"
+								className="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
 							>
-								<path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
-							</svg>
-							Adauga cazari
-						</a>
+								<svg
+									aria-hidden="true"
+									className="mr-2 w-4 h-4 fill-current"
+									fill="currentColor"
+									viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path>
+								</svg>
+								Adauga cazari
+							</a>
 						</Link>
 						<Link href="/admin">
 							<a
@@ -169,17 +167,17 @@ export default function Admincazare() {
 												htmlFor="company-website"
 												className="block text-sm font-medium text-dark"
 											>
-												Locatei
+												Adresa
 											</label>
 											<div className="mt-1 flex rounded-md shadow-sm">
 												<span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-dark bg-gray-50 text-gray-500 text-sm">
 													📍
 												</span>
 												<input
-													value={locatie}
+													value={adresa}
 													type="text"
-													name="locatie"
-													id="locatie"
+													name="adresa"
+													id="adresa"
 													className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
 													placeholder=" Undeva in oltenia ..."
 													onChange={handleChangeInput}
@@ -215,26 +213,45 @@ export default function Admincazare() {
 											</div>
 										</div>
 									</div>
-
-									<div>
-										<label
-											htmlFor="about"
-											className="block text-sm font-medium text-gray-700"
-										>
-											Scurta descriere ...
-										</label>
-										<div className="mt-1">
-											<textarea
-												id="descriere_scurta"
-												name="descriere_scurta"
-												rows={2}
-												className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-												placeholder="Intre 5 si 20 de cuvinte"
-												value={descriere_scurta}
-												onChange={handleChangeInput}
-											/>
+									<div className="grid grid-cols-4 gap-6">
+										<div className="col-span-2 sm:col-span-2">
+											<label
+												htmlFor="company-website"
+												className="block text-sm font-medium text-dark"
+											>
+												Nume
+											</label>
+											<div className="mt-1 flex rounded-md shadow-sm">
+												<input
+													value={nume}
+													type="text"
+													name="nume"
+													id="nume"
+													className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full  rounded-md sm:text-sm border-gray-300"
+													placeholder="Pensiuea / Hotelul / ... "
+													onChange={handleChangeInput}
+												/>
+											</div>
 										</div>
-										<p className="mt-2 text-sm text-gray-500"></p>
+										<div className="col-span-2 sm:col-span-2">
+											<label
+												htmlFor="company-website"
+												className="block text-sm font-medium text-dark"
+											>
+												Pret - Lei
+											</label>
+											<div className="mt-1 flex rounded-md shadow-sm">
+												<input
+													value={pret}
+													type="text"
+													name="pret"
+													id="pret"
+													className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full  rounded-md sm:text-sm border-gray-300"
+													placeholder="Pret / Persoana / Zi "
+													onChange={handleChangeInput}
+												/>
+											</div>
+										</div>
 									</div>
 									<div>
 										<label
@@ -275,7 +292,7 @@ export default function Admincazare() {
 												name="link"
 												rows={2}
 												className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-												placeholder="Link afterent de pe google maps Ex: http://www.google.com/maps/oletnia/romania"
+												placeholder="Link aferent de pe google maps Ex: http://www.google.com/maps/oletnia/romania"
 												onChange={handleChangeInput}
 												value={link}
 											/>
@@ -320,7 +337,7 @@ export default function Admincazare() {
 													</label>
 												</div>
 												<p className="text-xs text-gray-500">
-													PNG sau JPG - Max 1 MB
+													PNG sau JPG - Max 2 MB
 												</p>
 											</div>
 										</div>
