@@ -62,7 +62,7 @@ export default function Register() {
 	return (
 		<div>
 			<div className="flex justify-center pt-5 px-0">
-				<div className="w-11/12 p-2 bg-white sm:w-11/12 md:w-3/4 lg:w-5/12">
+				<div className="w-11/12 p-2 bg-white sm:w-11/12 md:w-3/4 lg:w-7/12">
 					<h1
 						style={{ textTransform: "capitalize" }}
 						className="text-xl text-center pb-3 font-semibold"

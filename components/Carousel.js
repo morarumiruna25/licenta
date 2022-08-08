@@ -47,7 +47,7 @@ export default function Carousel () {
           data-carousel-item="3"
         >
           <img
-            src="/caru2.jfif"
+            src="/caru5.jpg"
             className="absolute block w-full h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           ></img>

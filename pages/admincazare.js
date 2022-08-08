@@ -47,7 +47,7 @@ export default function Admincazare() {
 			if (file.size > 1024 * 2024)
 				return (err = "Dimensiuea maxim admisa este de 1 MB");
 
-			if (file.type !== "image/jpeg" && file.type !== "image/png")
+			if (file.type !== "image/jpeg" && file.type !== "image/png" && file.type !== "image/webp")
 				return (err = "Format poza incorect doar ( JPG / PNG )");
 			num += 1;
 			if (num <= 5) newImages.push(file);
@@ -208,7 +208,6 @@ export default function Admincazare() {
 													<option>2</option>
 													<option>3</option>
 													<option>4</option>
-													<option>5</option>
 												</select>
 											</div>
 										</div>

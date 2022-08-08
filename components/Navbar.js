@@ -11,8 +11,8 @@ import { Router, useRouter } from "next/router";
 import Cookie from "js-cookie";
 
 const navigation = [
-	{ name: "Locuti de Vizitat", href: "/", current: true },
-	{ name: "Ofete cazare", href: "/cazare", current: true },
+	{ name: "Atractii turistice", href: "/", current: true },
+	{ name: "Ofete de cazare", href: "/cazare", current: true },
 ];
 
 const navigation2 = [
