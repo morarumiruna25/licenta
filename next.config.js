@@ -10,7 +10,7 @@ module.exports = {
   env: {
     MONGODB_URL:
       'mongodb+srv://morarumiruna:morarumiruna@cluster0.qswmaay.mongodb.net/TurismOltenia?retryWrites=true&w=majority',
-    BASE_URL: 'https://licienta.vercel.app',
+    BASE_URL: 'https://morarumirunalicenta.vercel.app',
     ACCESS_TOKEN_SECRET: 'Wfiwfhwefrw@#$#@$@#R!1r3i12r23jr23',
     REFRESH_TOKEN_SECRET:
       '23432@F32f@#F@1!21e112FR!R231r2re23r23r2423r23f2@#f@#f2323rr23',
