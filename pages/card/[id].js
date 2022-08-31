@@ -53,7 +53,7 @@ const Card_detail = (props) => {
 							</Link>
 
 							<a href={card.link} className="transition ease-in-out delay-150 hover:scale-105 font-medium ml-4 inline-flex text-white bg-green-400 border-0 py-2 px-6 focus:outline-none hover:bg-green-500 rounded text-lg">
-								See On Map
+								Vezi pe harta
 							</a>
 						</div>
 					</div>
